@@ -29,6 +29,7 @@ public class DataPool
     public static void main(String[] args)
     {
         // TODO Auto-generated method stub
+    	
         DataPool dp = new DataPool();
         List<Products> myList = dp.getProductList();
         Session session =  HibernateUtility.buildSessionFactory();
@@ -80,7 +81,7 @@ public class DataPool
         XMLHandler xmlHandler = new XMLHandler();
         try {
             SAXParser saxParser = saxParserFactory.newSAXParser();
-            saxParser.parse(new File(System.getenv("HOME")+"/service/data/feed/image/"+"hushpuppies_uk/a.xml"),xmlHandler);
+            saxParser.parse(new File(System.getenv("HOME")+"/service/data/feed/image/"+"agentprovocateur/agentprovocateur.xml"),xmlHandler);
         }
         catch (SAXException | IOException | ParserConfigurationException e) {
             // TODO Auto-generated catch block

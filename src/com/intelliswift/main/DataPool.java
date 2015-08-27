@@ -14,6 +14,7 @@ import org.xml.sax.SAXException;
 
 import com.intelliswift.Utility.HibernateUtility;
 import com.intelliswift.Utility.XMLHandler;
+
 import com.intelliswift.beans.AlternateImage;
 import com.intelliswift.beans.Category;
 import com.intelliswift.beans.Colors;

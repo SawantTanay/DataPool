@@ -3,22 +3,16 @@ package com.intelliswift.Utility;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.EmptyStackException;
 import java.util.List;
-import java.util.Locale;
 import java.util.Stack;
 import java.util.TimeZone;
 
-import javax.persistence.criteria.CriteriaBuilder.In;
+import javax.swing.SizeSequence;
 
-import org.hibernate.jpamodelgen.util.StringUtil;
-import org.hibernate.property.Getter;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
-
-import antlr.StringUtils;
 
 import com.intelliswift.beans.AlternateImage;
 import com.intelliswift.beans.Category;
@@ -29,6 +23,7 @@ import com.intelliswift.beans.ProductURL;
 import com.intelliswift.beans.Products;
 import com.intelliswift.beans.Sizes;
 import com.intelliswift.beans.XMLConstants;
+
 
 public class XMLHandler extends DefaultHandler
 {

@@ -16,5 +16,6 @@
 	<classpathentry kind="lib" path="/home/intelliswift/DataPool/lib/hibernate-commons-annotations-4.0.5.Final.jar"/>
 	<classpathentry kind="lib" path="/home/intelliswift/DataPool/lib/dom4j-1.6.1.jar"/>
 	<classpathentry kind="lib" path="/home/intelliswift/DataPool/lib/antlr-2.7.7.jar"/>
+	<classpathentry kind="lib" path="/home/intelliswift/Downloads/mysql-connector-java-5.1.35/mysql-connector-java-5.1.35-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM 
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.dialect">
+			org.hibernate.dialect.MySQLDialect
+		</property>
+		<property name="hibernate.connection.driver_class">
+			com.mysql.jdbc.Driver
+		</property>
+
+		<!-- Assume test is the database name -->
+		<property name="hibernate.connection.url">
+			jdbc:mysql://localhost/DataPool
+		</property>
+		<property name="hibernate.connection.username">
+			root
+		</property>
+		<property name="hibernate.connection.password">
+			intelli123
+		</property>
+
+		<property name="connection.pool_size">1</property>
+
+		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+		<property name="show_sql">true</property>
+
+		<property name="hbm2ddl.auto">create</property>
+
+		<!-- List of XML mapping files -->
+		<!-- <mapping resource="Employee.hbm.xml"/> -->
+		<!-- <mapping class="com.intelliswift.beans.RetailerConfigs"></mapping> -->
+		<mapping class="com.intelliswift.beans.Products"></mapping>
+		<mapping class="com.intelliswift.beans.Price"></mapping>
+		<mapping class="com.intelliswift.beans.ProductURL"></mapping>
+		<mapping class="com.intelliswift.beans.Sizes"></mapping>
+		<mapping class="com.intelliswift.beans.Colors"></mapping>
+		<mapping class="com.intelliswift.beans.InStock"></mapping>
+		<mapping class="com.intelliswift.beans.AlternateImage"></mapping>
+		<mapping class="com.intelliswift.beans.Category"></mapping>
+		<!-- <mapping class="com.test.selfstudy.UserDetailsEntity"></mapping> -->
+	</session-factory>
+</hibernate-configuration>

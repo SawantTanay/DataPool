@@ -28,11 +28,11 @@
 
 		<property name="show_sql">true</property>
 
-		<property name="hbm2ddl.auto">create</property>
+		<property name="hbm2ddl.auto">update</property>
 
 		<!-- List of XML mapping files -->
 		<!-- <mapping resource="Employee.hbm.xml"/> -->
-		<!-- <mapping class="com.intelliswift.beans.RetailerConfigs"></mapping> -->
+		<mapping class="com.intelliswift.beans.RetailerConfigs"></mapping>
 		<mapping class="com.intelliswift.beans.Products"></mapping>
 		<mapping class="com.intelliswift.beans.Price"></mapping>
 		<mapping class="com.intelliswift.beans.ProductURL"></mapping>
@@ -41,6 +41,7 @@
 		<mapping class="com.intelliswift.beans.InStock"></mapping>
 		<mapping class="com.intelliswift.beans.AlternateImage"></mapping>
 		<mapping class="com.intelliswift.beans.Category"></mapping>
+		<mapping class="com.intelliswift.beans.SiteLog"></mapping>
 		<!-- <mapping class="com.test.selfstudy.UserDetailsEntity"></mapping> -->
 	</session-factory>
 </hibernate-configuration>

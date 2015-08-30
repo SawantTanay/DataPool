@@ -7,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 public class Price
@@ -17,54 +16,47 @@ public class Price
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int priceId;
     @Column (name="minPrice")
-    private String minPrice;
+    private double minPrice;
     @Column (name="MaxPrice")
-    private String maxPrice;
+    private double maxPrice;
     @Column (name="MinSalePrice")
-    private String minSalePrice;
+    private double minSalePrice;
     @Column (name="MaxSalePrice")
-    private String maxSalePrice;
+    private double maxSalePrice;
     @OneToOne
     @JoinColumn(name="ProductID")
     private Products products;
     
-    public String getMinPrice()
-    {
-        return minPrice;
-    }
-    public void setMinPrice(String minPrice)
-    {
-        this.minPrice = minPrice;
-    }
-    public String getMaxPrice()
-    {
-        return maxPrice;
-    }
-    public void setMaxPrice(String maxPrice)
-    {
-        this.maxPrice = maxPrice;
-    }
-    public String getMinSalePrice()
-    {
-        return minSalePrice;
-    }
-    public void setMinSalePrice(String minSalePrice)
-    {
-        this.minSalePrice = minSalePrice;
-    }
-    public String getMaxSalePrice()
-    {
-        return maxSalePrice;
-    }
-    public void setMaxSalePrice(String maxSalePrice)
-    {
-        this.maxSalePrice = maxSalePrice;
-    }
+    
     /**
      * @return the id
      */
 
-    /**
+    public double getMinPrice() {
+		return minPrice;
+	}
+	public void setMinPrice(double minPrice) {
+		this.minPrice = minPrice;
+	}
+	public double getMaxPrice() {
+		return maxPrice;
+	}
+	public void setMaxPrice(double maxPrice) {
+		this.maxPrice = maxPrice;
+	}
+	public double getMinSalePrice() {
+		return minSalePrice;
+	}
+	public void setMinSalePrice(double minSalePrice) {
+		this.minSalePrice = minSalePrice;
+	}
+	public double getMaxSalePrice() {
+		return maxSalePrice;
+	}
+	public void setMaxSalePrice(double maxSalePrice) {
+		this.maxSalePrice = maxSalePrice;
+	}
+	/**
      * @return the products
      */
     public Products getProducts()

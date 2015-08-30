@@ -6,11 +6,11 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
@@ -24,7 +24,7 @@ import org.hibernate.annotations.Cascade;
 @Entity
 public class Products
 {
-    @Column(name="RetailerName")
+     @Transient
     private String retailerName;
     @Id
     @Column (name="ProductID")
@@ -61,8 +61,11 @@ public class Products
     private List<InStock> inStockList = new ArrayList<InStock>();
     @Temporal (TemporalType.TIMESTAMP)
     private Date datetime;
-//    @ManyToOne 
-//    private RetailerConfigs retailerConfigs;
+    @ManyToOne
+    @JoinColumn(name="Site_Id")
+    private RetailerConfigs retailerConfigs;
+    
+    
     public String getRetailerName()
     {
         return retailerName;
@@ -151,14 +154,14 @@ public class Products
     {
         this.datetime = date;
     }
-//    public RetailerConfigs getRetailerConfigs()
-//    {
-//        return retailerConfigs;
-//    }
-//    public void setRetailerConfigs(RetailerConfigs retailerConfigs)
-//    {
-//        this.retailerConfigs = retailerConfigs;
-//    }
+    public RetailerConfigs getRetailerConfigs()
+    {
+        return retailerConfigs;
+    }
+    public void setRetailerConfigs(RetailerConfigs retailerConfigs)
+    {
+        this.retailerConfigs = retailerConfigs;
+    }
     /**
      * @return the sizeChartURL
      */

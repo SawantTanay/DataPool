@@ -22,9 +22,9 @@ public class InStock
     @Column (name="Color")
     private String color;
     @Column (name="Price")
-    private String price;
+    private double price;
     @Column (name="SalePrice")
-    private String salePrice;
+    private double salePrice;
     @ManyToOne
     @JoinColumn (name="ProductID")
     private Products products;
@@ -52,22 +52,6 @@ public class InStock
     {
         this.color = color;
     }
-    public String getPrice()
-    {
-        return price;
-    }
-    public void setPrice(String price)
-    {
-        this.price = price;
-    }
-    public String getSalePrice()
-    {
-        return salePrice;
-    }
-    public void setSalePrice(String salePrice)
-    {
-        this.salePrice = salePrice;
-    }
     public int getInstockId()
     {
         return instockId;
@@ -84,6 +68,18 @@ public class InStock
     {
         this.products = products;
     }
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	public double getSalePrice() {
+		return salePrice;
+	}
+	public void setSalePrice(double salePrice) {
+		this.salePrice = salePrice;
+	}
     
     
 }

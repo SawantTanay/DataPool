@@ -3,6 +3,7 @@ package com.intelliswift.main;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 import org.hibernate.Session;
+import org.hibernate.mapping.Array;
 import org.xml.sax.SAXException;
 
 import com.intelliswift.Utility.HibernateUtility;
@@ -70,7 +72,10 @@ public class DataPool
 		siteLog.setNumProds(dp.xmlHandler.getTotalProducts());
 		siteLog.setRetailerConfigs(retailerConfigs);
 		retailerConfigs.setProductList(myList);
-		retailerConfigs.setSiteLog(siteLog);
+		
+		List<SiteLog> siteLogs = new ArrayList<SiteLog>();
+		siteLogs.add(siteLog);
+		retailerConfigs.setSiteLogList(siteLogs);
 		
 		for (Iterator iterator = myList.iterator(); iterator.hasNext();) {
 			Products products = (Products) iterator.next();

@@ -32,18 +32,17 @@ public class RetailerConfigs
 //    @Transient
     @OneToMany (mappedBy="retailerConfigs", cascade=CascadeType.ALL)
     private List<Products> productList = new ArrayList<Products>();
-    @OneToOne  (mappedBy="retailerConfigs")
-    @Cascade(value=org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-    private SiteLog siteLog = new SiteLog();
+    @OneToMany (mappedBy="retailerConfigs",cascade=CascadeType.ALL)
+    private List<SiteLog> siteLogList = new ArrayList<SiteLog>();
 
 
-    public SiteLog getSiteLog() {
-        return siteLog;
-    }
-    public void setSiteLog(SiteLog siteLog) {
-        this.siteLog = siteLog;
-    }
-    public String getSite_id() {
+    public List<SiteLog> getSiteLogList() {
+		return siteLogList;
+	}
+	public void setSiteLogList(List<SiteLog> siteLogList) {
+		this.siteLogList = siteLogList;
+	}
+	public String getSite_id() {
         return site_id;
     }
     public void setSite_id(String site_id) {

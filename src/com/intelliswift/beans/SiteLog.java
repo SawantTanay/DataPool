@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -14,7 +15,7 @@ public class SiteLog {
 	private String logId;
 	@Column(name="Total_Products")
 	private int numProds;
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name="Site_Id")
 	private RetailerConfigs retailerConfigs;
 	

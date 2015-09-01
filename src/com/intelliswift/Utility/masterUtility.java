@@ -25,7 +25,14 @@ public class masterUtility {
 				retailerConfigs.setSite_id(getSiteKey(line));
 				retailerConfigs.setSiteName(lineArr[0]);
 				retailerConfigs.setRetailer(lineArr[1]);
-				retailerConfigs.setLocale(lineArr[2]);
+				lineArr[2]=lineArr[2].replace("en_US", "US");
+				lineArr[2]=lineArr[2].replace("de_DE", "DE");
+				lineArr[2]=lineArr[2].replace("en_GB", "UK");
+				lineArr[2]=lineArr[2].replace("fr_FR", "FR");
+	                        lineArr[2]=lineArr[2].replace("ja_JP", "JP");
+	                        lineArr[2]=lineArr[2].replace("en_AU", "AU");
+	                        lineArr[2]=lineArr[2].replace("en_CA", "CA");
+	                        retailerConfigs.setLocale(lineArr[2]);
 				retailerConfigs.setDomain(lineArr[3]);
 			}
 		}

@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedNativeQuery;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -15,7 +16,11 @@ import javax.persistence.OneToOne;
 import org.hibernate.annotations.Cascade;
 
 @Entity
-@NamedQuery(name="RetailerConfigs",query="from RetailerConfigs")
+@NamedQueries ({
+    @NamedQuery(name="RetailerConfigs.all",query="from RetailerConfigs"),
+    @NamedQuery(name="RetailerConfigs.locale",query ="from RetailerConfigs where Locale=?")
+})
+
 public class RetailerConfigs
 {
     @Id

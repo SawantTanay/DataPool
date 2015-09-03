@@ -5,9 +5,14 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 
 @Entity
+@NamedQueries ({
+    @NamedQuery(name="SiteLog.bylogId",query="from SiteLog where Site_Id = ?")
+})
 public class SiteLog {
 	
 	@Id

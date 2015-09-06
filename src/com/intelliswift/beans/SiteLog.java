@@ -20,12 +20,33 @@ public class SiteLog {
 	private String logId;
 	@Column(name="Total_Products")
 	private int numProds;
+	private int numColors;
+	private int numSizes;
+	private int numSale;
 	@ManyToOne
 	@JoinColumn(name="Site_Id")
 	private RetailerConfigs retailerConfigs;
 	
 	
 
+	public int getNumColors() {
+		return numColors;
+	}
+	public void setNumColors(int numColors) {
+		this.numColors = numColors;
+	}
+	public int getNumSizes() {
+		return numSizes;
+	}
+	public void setNumSizes(int numSizes) {
+		this.numSizes = numSizes;
+	}
+	public int getNumSale() {
+		return numSale;
+	}
+	public void setNumSale(int numSale) {
+		this.numSale = numSale;
+	}
 	public String getLogId() {
 		return logId;
 	}

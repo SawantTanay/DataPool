@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
@@ -22,9 +24,12 @@ import org.hibernate.annotations.Cascade;
 
 
 @Entity
+@NamedQueries ({
+	@NamedQuery(name="Products.byAll", query="from Products where ProductID like ?")
+})
 public class Products
 {
-     @Transient
+    @Transient
     private String retailerName;
     @Id
     @Column (name="ProductID")

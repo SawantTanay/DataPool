@@ -44,9 +44,46 @@ public class XMLHandler extends DefaultHandler
 	private Category category;
 	private String categoryPart;
 	private String region;
-	
+
 	private long miliseconds;
+
 	private int numProds = 0;
+	private int numSaleProds = 0;
+	private int numColors =0;
+	private int numSizes = 0;
+
+	public int getNumProds() {
+		return numProds;
+	}
+
+	public void setNumProds(int numProds) {
+		this.numProds = numProds;
+	}
+
+	public int getNumSaleProds() {
+		return numSaleProds;
+	}
+
+	public void setNumSaleProds(int numSaleProds) {
+		this.numSaleProds = numSaleProds;
+	}
+
+	public int getNumColors() {
+		return numColors;
+	}
+
+	public void setNumColors(int numColors) {
+		this.numColors = numColors;
+	}
+
+	public int getNumSizes() {
+		return numSizes;
+	}
+
+	public void setNumSizes(int numSizes) {
+		this.numSizes = numSizes;
+	}
+
 	private boolean feed = false;
 	private boolean direct = false;
 	private boolean sdc = false;
@@ -139,6 +176,7 @@ public class XMLHandler extends DefaultHandler
 			if(XMLConstants.TAG_PRODUCT.equalsIgnoreCase(parentTag)) {
 				sizes.setSize(size);
 				products.getSizeList().add(sizes);
+				numSizes++;
 			}
 			else if(XMLConstants.TAG_INSTOCK.equalsIgnoreCase(parentTag)) {
 				instock.setSize(size);
@@ -146,7 +184,7 @@ public class XMLHandler extends DefaultHandler
 		}
 		else if(XMLConstants.TAG_PRICE.equalsIgnoreCase(tag)) {
 			String priceRange = tempVal.toString();
-//			priceRange = priceRange.replaceAll("$|€|&.*?;|£|￥", "").trim();
+			//			priceRange = priceRange.replaceAll("$|€|&.*?;|£|￥", "").trim();
 			if(XMLConstants.TAG_PRODUCT.equalsIgnoreCase(parentTag)) {
 				products.setPrice(price);
 				if(priceRange.contains("–") || priceRange.contains("-")) {
@@ -186,6 +224,7 @@ public class XMLHandler extends DefaultHandler
 					price.setMinSalePrice(salePrice);
 					price.setMaxSalePrice(salePrice);
 				}
+				numSaleProds++;
 			}
 			else  if(XMLConstants.TAG_INSTOCK.equalsIgnoreCase(parentTag)){
 				double salePrice=parsePrice(salePriceRange);
@@ -201,6 +240,7 @@ public class XMLHandler extends DefaultHandler
 				color = new Colors();
 				color.setColor(name);
 				products.getColorList().add(color);
+				numColors++;
 			}
 		}
 		else if(XMLConstants.TAG_IMAGEURL.equalsIgnoreCase(tag)) {
@@ -348,7 +388,7 @@ public class XMLHandler extends DefaultHandler
 	public int getTotalProducts() {
 		return numProds;
 	}
-	
+
 	public String getEntryTime() {
 		return Long.toString(miliseconds);
 	}

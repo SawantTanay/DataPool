@@ -70,6 +70,9 @@ public class DataPool
 		SiteLog siteLog = new SiteLog();
 		siteLog.setLogId(dp.xmlHandler.getEntryTime());
 		siteLog.setNumProds(dp.xmlHandler.getTotalProducts());
+		siteLog.setNumColors(dp.xmlHandler.getNumColors());
+		siteLog.setNumSale(dp.xmlHandler.getNumSaleProds());
+		siteLog.setNumSizes(dp.xmlHandler.getNumSizes());
 		siteLog.setRetailerConfigs(retailerConfigs);
 		retailerConfigs.setProductList(myList);
 		

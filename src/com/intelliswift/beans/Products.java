@@ -43,6 +43,7 @@ public class Products
     @Lob
     @Column (name="Description")
     private String description;
+    @Lob
     @Column (name="ImageURL")
     private String imageURL;
     @Column (name="SizeChartURL")

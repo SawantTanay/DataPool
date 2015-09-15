@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
@@ -20,6 +21,7 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.FetchMode;
 
 
 
@@ -49,21 +51,21 @@ public class Products
     @Column (name="SizeChartURL")
     private String sizeChartURL;
 
-    @OneToOne (mappedBy="products")
+    @OneToOne (mappedBy="products",fetch=FetchType.LAZY)
     @Cascade(value=org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     private Price price = new Price();
-    @OneToOne (mappedBy="products")
+    @OneToOne (mappedBy="products",fetch=FetchType.LAZY)
     @Cascade(value=org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     private ProductURL productUrl = new ProductURL();
-    @OneToMany (mappedBy="products",cascade=CascadeType.ALL)
+    @OneToMany (mappedBy="products",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
     private List<AlternateImage> alternateImageList = new ArrayList<AlternateImage>();
-    @OneToMany (mappedBy="products",cascade=CascadeType.ALL)
+    @OneToMany (mappedBy="products",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
     private List<Category> categoryList = new ArrayList<Category>();
-    @OneToMany (mappedBy="products",cascade=CascadeType.ALL)
+    @OneToMany (mappedBy="products",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
     private List<Sizes> sizeList = new ArrayList<Sizes>();
-    @OneToMany (mappedBy="products", cascade=CascadeType.ALL)
+    @OneToMany (mappedBy="products", cascade=CascadeType.ALL,fetch=FetchType.LAZY)
     private List<Colors> colorList = new ArrayList<Colors>();
-    @OneToMany (mappedBy="products",cascade=CascadeType.ALL)
+    @OneToMany (mappedBy="products",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
     private List<InStock> inStockList = new ArrayList<InStock>();
     @Temporal (TemporalType.TIMESTAMP)
     private Date datetime;
